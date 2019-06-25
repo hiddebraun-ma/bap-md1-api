@@ -1,0 +1,17 @@
+{
+    "name": "bap/md1-api",
+    "license": "MIT",
+    "description": "Playing with an API",
+    "require": {
+        "altorouter/altorouter": "1.2.*",
+        "guzzlehttp/guzzle": "^6.3",
+        "ext-json": "*"
+    },
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Hidde Braun",
+            "email": "h.braun@ma-web.nl"
+        }
+    ]
+}
