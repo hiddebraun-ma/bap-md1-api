@@ -1,3 +1,3 @@
 # API aanroepen
 
-[Lees de docs](docs/index.md)
+[Lees de docs](http://hiddebraun-ma.github.io/bap-md1-api)
