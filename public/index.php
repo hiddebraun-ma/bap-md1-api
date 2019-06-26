@@ -5,6 +5,7 @@ require __DIR__ . '/../private/controllers.php';
 
 $CONFIG = require __DIR__ . '/../private/config.php';
 
+// Zet de juiste BASE URL in config.php (dus wat is het pad naar de public folder)
 $router = new AltoRouter( [], $CONFIG['BASE_URL'] );
 
 $router->map( 'GET', '/', 'homepage');
