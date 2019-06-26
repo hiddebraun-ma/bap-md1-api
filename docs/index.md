@@ -1,29 +1,35 @@
 # Een API aanroepen en gegevens gebruiken op je website
 
-We gaan spelen met het aanroepen van een API (Application Programming Interface) 
-Er zijn heel veel API's die je kunt gebruiken. Denk aan:
+Je gaat oefenen met het aanroepen van een API (Application Programming Interface) 
+Een API ontsluit data op de server in eeb gestructureerd formaat, meestal JSON of XML.
+
+Er zijn enorm veel API's die je kunt gebruiken. Denk aan:
+
 - Postcode / Geolocatie API
 - Weersvoorspelling opvragen
 - Gegevens over films opzoeken
+- OV informatie / halte info, vertrektijden etc.
 - Facebook API / Instagram API etc. etc. (lastiger)
 
-Kijk eens op https://any-api.com voor een overzicht van allerlei API's.
+Kijk eens op https://any-api.com of https://public-apis.xyz/ voor een overzicht van allerlei API's.
 
+---
 Je kunt een API aanroepen met PHP (of een andere script taal) en vaak ook met Javascript.
-Om met PHP een API aan te roepen moet je aan HTTP Client gebruiken.
-Dit is een soort browser maar dan zonder grafische weergave, je krijgt *rauwe* data terug, meestal in JSON.
+Om met PHP een API aan te roepen moet je een HTTP Client gebruiken.
+Dit is een soort browser in je code, maar dan zonder grafische weergave. 
+Deze HTTP Client kun je zelf helemaal instellen:
 
-In dit project maak ik gebruik van Guzzle, dit is een open source Http Client die je kunt gebruiken.
+In dit project maak je gebruik van [Guzzle](http://docs.guzzlephp.org/en/stable/quickstart.html), dit is een open source Http Client die je kunt gebruiken in PHP.
+Bekijk in de code hoe je deze kunt gebruiken.
 
 Je stelt de client in:
 - Welke API en URL wil je opvragen
 - Stel de juiste parameters in
 - Roep de API aan en lees het resultaat uit.
 
-Het voorbeeld maakt gebruik van een Movie API waar je kunt zoeken naar Films.
-Hiervoor heb ik formulier met een zoekveld gemaakt. Als je die opstuurt lees ik de juiste parameter uit en gebruik ik die om de API aan te roepen.
-
-Hiervoor heb ik eerst de documentatie gelezen van de API. In dit geval: http://omdbapi.com/
+Het voorbeeld maakt gebruik van een Movie API waar je kunt zoeken naar film titels.
+Er is een simpel formulier met een zoekveld gemaakt. Als je dit form opstuurt wordt de zoekquery parameter vervolgens gebruikt om de Movie API aan te roepen.
+Om te weten hoe deze API werkt, heb ik eerst **de API documentatie gelezen**. In dit geval: http://omdbapi.com/
 
 Je kunt zoeken op ID, Title of een vrije zoekopdracht.
 De URL hiervoor is:
@@ -35,10 +41,11 @@ Als ik zoek naar 'Avengers' wordt de URL dus:
 
 http://www.omdbapi.com/?apikey=d28c89b3&s=Avengers
 
-Die roep ik aan, en dan krijg ik JSON terug die ik volgens het MVC principe (ja ja, daar is ie weer)aan de view geef.
-Daar hoef ik er alleen maar mooie HTML van te maken.
 
-De JSON die je terugkrijgt ziet er zo uit:
+Als ik de HTTP Client deze aanroept, krijg deze JSON terug die volgens het MVC principe (ja ja, daar is ie weer) aan de view wordt gegeven.
+In de view kan er dan een mooie weergave van worden gemaakt.
+
+De JSON die je terugkrijgt heeft deze structuur.
 
 ```json
  {
@@ -63,7 +70,7 @@ De JSON die je terugkrijgt ziet er zo uit:
 
 ```
 
-Met de de functie [json_decode()](https://www.php.net/manual/en/function.json-decode.php) kan ik dit omzetten naar een array in PHP.
+Met de de functie [json_decode()](https://www.php.net/manual/en/function.json-decode.php) kan je dit omzetten naar een array in PHP.
 
 ---
 
@@ -77,7 +84,7 @@ Kies een API die gratis is en die gebruik maakt van een API key (er zijn ook ing
 #### Postcode API
 
 https://postcode-api.nu  
-API Key: `Ps06isU9I15LHZZHHjbRw7InmtQAyOp7apkCYCUi`
+API Key: `vraag aan docent`
 
 Maak een form met postcode en huisnummer en vul straat, huisnummer en plaats automatisch in.
 Kan ook met Javascript en AJAX....
