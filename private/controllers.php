@@ -26,11 +26,15 @@ function voorbeeld_zoeken()
     // IN het config.php heb ik al de basis url ingesteld, deze gebruik ik, en ik plak hier de juiste service en parameters achter
     $url = $CONFIG['API_ENDPOINT'] . '?postcode=' . $postcode . '&number=' . urlencode($huisnummer);
 
-    //Als mijn zoekdopracht "Avengers" is, wordt de url dus: https://omdbapi.com/apikey=
+    // Als mijn postcode "1012EZ" is en mijn huisnummer "247"  wordt de url dus: https://api.postcodeapi.nu/v2/addresses/?posctode=1012EZ&number=247
 
     // Hier maak ik een HTTP Client aan, deze is automatisch ingeladen
     // Documentatie  hoe je deze aanroept: http://docs.guzzlephp.org/en/stable/quickstart.html
+
     $client = new GuzzleHttp\Client();
+
+    // Let op: hier wordt de API key dus in een speciale HTTP header meegegeven
+
     $response = $client->request('GET', $url,
         [
             'headers' => [
